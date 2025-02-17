@@ -1,0 +1,75 @@
+// SPDX-License-Identifier: (GPL-2.0 OR MIT)
+/*
+ * Copyright (C) 2020 MediaTek Inc.
+ */
+
+/* TOUCH start */
+&odm {
+	xiaomi_touch: xiaomi_touch {
+		compatible = "xiaomi-touch";
+		status = "ok";
+		touch,name = "xiaomi-touch";
+	};
+};
+
+&spi6 {
+	status = "okay";
+	xiaomi_m9b_touch@0 {
+		status = "ok";
+		compatible = "synaptics,tcm-spi";
+		reg = <0x0>;
+		spi-max-frequency = <5000000>;
+		interrupt-parent = <&pio>;
+		interrupts = <8 0x2008>;
+		pinctrl-names = "default";
+		pinctrl-0 = <&syna_tcm_eint_init &syna_tcm_rst_init>;
+		synaptics,avdd-name = "avdd";
+		synaptics,iovdd-name = "iovdd";
+		iovdd-supply = <&mt6373_vfp>;
+		avdd-supply = <&mt6373_vcn33_3>;
+		
+		synaptics,irq-gpio = <&pio 8 0x2008>;		/* IRQF_TRIGGER_LOW | IRQF_ONESHOT */
+		synaptics,reset-gpio = <&pio 3 0x0>;
+		synaptics,irq-on-state = <0>;
+		synaptics,reset-on-state = <0>;
+		synaptics,spi-mode = <0>;
+		synaptics,reset-delay-ms = <200>;
+		synaptics,power-delay-ms = <200>;
+		synaptics,byte-delay-us = <0>;
+		synaptics,block-delay-us = <0>;
+		synaptics,ubl-max-freq = <5000000>;
+		synaptics,ubl-byte-delay-us = <20>;
+	};
+};
+
+&mt6373_vfp {
+	regulator-boot-on;
+	regulator-min-microvolt = <1800000>;
+	regulator-max-microvolt = <1800000>;
+};
+
+&mt6373_vcn33_3 {
+	regulator-boot-on;
+	regulator-min-microvolt = <3300000>;
+	regulator-max-microvolt = <3300000>;
+};
+
+&pio {
+	syna_tcm_eint_init: syna_tcm_eint_init {
+		pins_cmd_dat {
+			pinmux = <PINMUX_GPIO8__FUNC_GPIO8>;
+			bias-disable;
+			input_enable;
+		};
+	};
+	syna_tcm_rst_init: syna_tcm_rst_init {
+		pins_cmd_dat {
+			pinmux = <PINMUX_GPIO3__FUNC_GPIO3>;
+			bias-disable;
+			output-low;
+		};
+	};
+};
+
+/* TOUCH end */
+
