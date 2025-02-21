@@ -12,10 +12,10 @@
 
 #include "mtk_clkbuf_common.h"
 #include "mtk_clkbuf_ctl.h"
-#include "mtk-clkbuf-dcxo.h"
-#include "mtk-srclken-rc-hw.h"
+#include "../inc/mtk-clkbuf-dcxo.h"
+#include "../inc/mtk-srclken-rc-hw.h"
 #if IS_ENABLED(CONFIG_MTK_SRCLKEN_RC_V1)
-#include "mtk-srclken-rc-hw-v1.h"
+#include "../inc/mtk-srclken-rc-hw-v1.h"
 #endif /* IS_ENABLED(CONFIG_MTK_SRCLKEN_RC_V1) */
 
 #define SRCLKEN_RC_ENABLE_PROP_NAME		"mediatek,enable"

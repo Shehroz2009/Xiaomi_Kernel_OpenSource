@@ -8,8 +8,8 @@
 #include <linux/platform_device.h>
 #include <linux/mfd/syscon.h>
 
-#include "mtk-srclken-rc-hw.h"
-#include "mtk-srclken-rc-hw-v1.h"
+#include "../inc/mtk-srclken-rc-hw.h"
+#include "../inc/mtk-srclken-rc-hw-v1.h"
 
 
 #define TRACE_NUM		8

@@ -23,7 +23,7 @@
 #include <linux/uaccess.h>
 #include <linux/wait.h>
 
-#include "mt-plat/fpsgo_common.h"
+#include "../../mt-plat/fpsgo_common.h"
 #include "fpsgo_usedext.h"
 #include "fpsgo_sysfs.h"
 #include "fbt_cpu.h"
