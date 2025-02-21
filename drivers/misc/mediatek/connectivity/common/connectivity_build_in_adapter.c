@@ -69,7 +69,7 @@ struct connsys_state_info g_connsys_state_info;
 void connectivity_export_show_stack(struct task_struct *tsk, unsigned long *sp)
 {
 #ifdef CFG_CONNADP_BUILD_IN
-	show_stack(tsk, sp);
+	show_stack(tsk, sp, KERN_INFO);
 #else
 	pr_info("%s not support in connadp.ko\n", __func__);
 #endif
@@ -293,7 +293,7 @@ void connectivity_export_dump_thread_state(const char *name)
 
 		if (strncmp(p->comm, name, strlen(name)) != 0)
 			continue;
-		state = p->state;
+		state = p->__state;
 		cpu = task_cpu(p);
 		rq = cpu_rq(cpu);
 		curr = rq->curr;
@@ -303,12 +303,12 @@ void connectivity_export_dump_thread_state(const char *name)
 		pr_info("%d:%-15.15s %c", p->pid, p->comm,
 			state < sizeof(stat_nam) - 1 ? stat_nam[state] : '?');
 		pr_info("cpu=%d on_cpu=%d ", cpu, p->on_cpu);
-		show_stack(p, NULL);
+		show_stack(p, NULL, KERN_INFO);
 		pr_info("CPU%d curr=%d:%-15.15s preempt_count=0x%x", cpu,
 			curr->pid, curr->comm, ti->preempt_count);
 
 		if (state == TASK_RUNNING && curr != p)
-			show_stack(curr, NULL);
+			show_stack(curr, NULL, KERN_INFO);
 
 		break;
 	}
