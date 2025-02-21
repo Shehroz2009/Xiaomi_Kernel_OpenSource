@@ -30,7 +30,7 @@
 #include "mtk_disp_recovery.h"
 #include "mtk_drm_ddp_addon.h"
 #include "mtk_disp_pmqos.h"
-#include "slbc_ops.h"
+#include <slbc_ops.h>
 #ifdef CONFIG_MI_DISP
 #include "mi_disp/mi_disp_esd_check.h"
 #endif
