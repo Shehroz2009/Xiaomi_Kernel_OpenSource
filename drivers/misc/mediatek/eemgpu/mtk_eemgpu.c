@@ -395,13 +395,14 @@ void base_ops_disable_locked_gpu(struct eemg_det *det, int reason)
 
 	switch (reason) {
 	case BY_MON_ERROR: /* 4 */
+		__attribute__((fallthrough));
 	case BY_INIT_ERROR: /* 2 */
 		/* disable EEM */
 		eemg_write(EEMGEN, 0x0 | SEC_MOD_SEL);
 
 		/* Clear EEM interrupt EEMGINTSTS */
 		eemg_write(EEMGINTSTS, 0x00ffffff);
-
+		__attribute__((fallthrough));
 	case BY_PROCFS: /* 1 */
 		det->disabled |= reason;
 		eemg_restore_eemg_volt(det);
