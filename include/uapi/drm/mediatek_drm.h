@@ -678,7 +678,7 @@ enum DRM_REPAINT_TYPE {
 	DRM_REPAINT_FOR_IDLE,
 /* #if defined(CONFIG_PXLW_IRIS) */
 	DRM_REPAINT_FOR_ESD,
-/* #endif //CONFIG_PXLW_IRIS */
+/* #endif /*CONFIG_PXLW_IRIS */
 	DRM_REPAINT_TYPE_NUM,
 };
 
@@ -1029,7 +1029,7 @@ struct DISP_TDSHP_DISPLAY_SIZE {
 };
 
 struct DISP_MDP_AAL_CLARITY_REG {
-	// Bilateral
+	/* Bilateral */
 	__u32 bilateral_impulse_noise_en;
 	__u32 dre_bilateral_detect_en;
 	__u32 bilateral_range_flt_slope;
@@ -1037,7 +1037,7 @@ struct DISP_MDP_AAL_CLARITY_REG {
 	__u32 have_bilateral_filter;
 	__u32 dre_output_mode;
 
-	// Bilateral Blending
+	/* Bilateral Blending */
 	__u32 dre_bilateral_activate_blending_A;
 	__u32 dre_bilateral_activate_blending_B;
 	__u32 dre_bilateral_activate_blending_C;
@@ -1048,7 +1048,7 @@ struct DISP_MDP_AAL_CLARITY_REG {
 	__u32 dre_bilateral_blending_wgt_mode;
 	__u32 dre_bilateral_size_blending_wgt;
 
-	// Filter 1
+	/* Filter 1 */
 	__u32 bilateral_custom_range_flt1_0_0;
 	__u32 bilateral_custom_range_flt1_0_1;
 	__u32 bilateral_custom_range_flt1_0_2;
@@ -1067,7 +1067,7 @@ struct DISP_MDP_AAL_CLARITY_REG {
 	__u32 bilateral_custom_range_flt1_2_3;
 	__u32 bilateral_custom_range_flt1_2_4;
 
-	// Filter 2
+	/* Filter 2 */
 	__u32 bilateral_custom_range_flt2_0_0;
 	__u32 bilateral_custom_range_flt2_0_1;
 	__u32 bilateral_custom_range_flt2_0_2;
@@ -1086,21 +1086,21 @@ struct DISP_MDP_AAL_CLARITY_REG {
 	__u32 bilateral_custom_range_flt2_2_3;
 	__u32 bilateral_custom_range_flt2_2_4;
 
-	// Bilateral Flt Config
+	/* Bilateral Flt Config */
 	__u32 bilateral_contrary_blending_wgt;
 	__u32 bilateral_custom_range_flt_gain;
 	__u32 bilateral_custom_range_flt_slope;
 	__u32 bilateral_range_flt_gain;
 	__u32 bilateral_size_blending_wgt;
 
-	// Bilateral Frequency Blending
+	/* Bilateral Frequency Blending */
 	__u32 bilateral_contrary_blending_out_wgt;
 	__u32 bilateral_custom_range_flt1_out_wgt;
 	__u32 bilateral_custom_range_flt2_out_wgt;
 	__u32 bilateral_range_flt_out_wgt;
 	__u32 bilateral_size_blending_out_wgt;
 
-	// Bilateral Region Protection
+	/* Bilateral Region Protection */
 	__u32 dre_bilateral_blending_region_protection_en;
 	__u32 dre_bilateral_region_protection_activate_A;
 	__u32 dre_bilateral_region_protection_activate_B;
@@ -1110,11 +1110,11 @@ struct DISP_MDP_AAL_CLARITY_REG {
 };
 
 struct DISP_TDSHP_CLARITY_REG {
-	// High & Mid Gain
+	/* High & Mid Gain */
 	__u32 tdshp_gain_high;
 	__u32 tdshp_gain_mid;
 
-	// Mid-Band Vertical Filter
+	/* Mid-Band Vertical Filter */
 	__u32 mid_coef_v_custom_range_flt_0_0;
 	__u32 mid_coef_v_custom_range_flt_0_1;
 	__u32 mid_coef_v_custom_range_flt_0_2;
@@ -1133,7 +1133,7 @@ struct DISP_TDSHP_CLARITY_REG {
 	__u32 mid_coef_v_custom_range_flt_2_3;
 	__u32 mid_coef_v_custom_range_flt_2_4;
 
-	// Mid-Band Horizontal Filter
+	/* Mid-Band Horizontal Filter */
 	__u32 mid_coef_h_custom_range_flt_0_0;
 	__u32 mid_coef_h_custom_range_flt_0_1;
 	__u32 mid_coef_h_custom_range_flt_0_2;
@@ -1152,7 +1152,7 @@ struct DISP_TDSHP_CLARITY_REG {
 	__u32 mid_coef_h_custom_range_flt_2_3;
 	__u32 mid_coef_h_custom_range_flt_2_4;
 
-	// High-Band Vertical Filter
+	/* High-Band Vertical Filter */
 	__u32 high_coef_v_custom_range_flt_0_0;
 	__u32 high_coef_v_custom_range_flt_0_1;
 	__u32 high_coef_v_custom_range_flt_0_2;
@@ -1171,7 +1171,7 @@ struct DISP_TDSHP_CLARITY_REG {
 	__u32 high_coef_v_custom_range_flt_2_3;
 	__u32 high_coef_v_custom_range_flt_2_4;
 
-	// High-Band Horizontal Filter
+	/* High-Band Horizontal Filter */
 	__u32 high_coef_h_custom_range_flt_0_0;
 	__u32 high_coef_h_custom_range_flt_0_1;
 	__u32 high_coef_h_custom_range_flt_0_2;
@@ -1190,7 +1190,7 @@ struct DISP_TDSHP_CLARITY_REG {
 	__u32 high_coef_h_custom_range_flt_2_3;
 	__u32 high_coef_h_custom_range_flt_2_4;
 
-	// High-Band Right-Diagonal Filter
+	/* High-Band Right-Diagonal Filter */
 	__u32 high_coef_rd_custom_range_flt_0_0;
 	__u32 high_coef_rd_custom_range_flt_0_1;
 	__u32 high_coef_rd_custom_range_flt_0_2;
@@ -1209,7 +1209,7 @@ struct DISP_TDSHP_CLARITY_REG {
 	__u32 high_coef_rd_custom_range_flt_2_3;
 	__u32 high_coef_rd_custom_range_flt_2_4;
 
-	// High-Band Left-Diagonal Filter
+	/* High-Band Left-Diagonal Filter */
 	__u32 high_coef_ld_custom_range_flt_0_0;
 	__u32 high_coef_ld_custom_range_flt_0_1;
 	__u32 high_coef_ld_custom_range_flt_0_2;
@@ -1228,83 +1228,83 @@ struct DISP_TDSHP_CLARITY_REG {
 	__u32 high_coef_ld_custom_range_flt_2_3;
 	__u32 high_coef_ld_custom_range_flt_2_4;
 
-	// Active Parameters
+	/* Active Parameters */
 	__u32 mid_negative_offset;
 	__u32 mid_positive_offset;
 	__u32 high_negative_offset;
 	__u32 high_positive_offset;
 
-	// Active Parameters Frequency D
+	/* Active Parameters Frequency D */
 	__u32 D_active_parameter_N_gain;
 	__u32 D_active_parameter_N_offset;
 	__u32 D_active_parameter_P_gain;
 	__u32 D_active_parameter_P_offset;
 
-	// Active Parameters Frequency H
+	/* Active Parameters Frequency H */
 	__u32 High_active_parameter_N_gain;
 	__u32 High_active_parameter_N_offset;
 	__u32 High_active_parameter_P_gain;
 	__u32 High_active_parameter_P_offset;
 
-	// Active Parameters Frequency L
+	/* Active Parameters Frequency L */
 	__u32 L_active_parameter_N_gain;
 	__u32 L_active_parameter_N_offset;
 	__u32 L_active_parameter_P_gain;
 	__u32 L_active_parameter_P_offset;
 
-	// Active Parameters Frequency M
+	/* Active Parameters Frequency M */
 	__u32 Mid_active_parameter_N_gain;
 	__u32 Mid_active_parameter_N_offset;
 	__u32 Mid_active_parameter_P_gain;
 	__u32 Mid_active_parameter_P_offset;
 
-	// Size Parameters
+	/* Size Parameters */
 	__u32 SIZE_PARA_BIG_HUGE;
 	__u32 SIZE_PARA_MEDIUM_BIG;
 	__u32 SIZE_PARA_SMALL_MEDIUM;
 
-	// Final Size Adaptive Weight Huge
+	/* Final Size Adaptive Weight Huge */
 	__u32 high_auto_adaptive_weight_HUGE;
 	__u32 high_size_adaptive_weight_HUGE;
 	__u32 Mid_auto_adaptive_weight_HUGE;
 	__u32 Mid_size_adaptive_weight_HUGE;
 
-	// Final Size Adaptive Weight Big
+	/* Final Size Adaptive Weight Big */
 	__u32 high_auto_adaptive_weight_BIG;
 	__u32 high_size_adaptive_weight_BIG;
 	__u32 Mid_auto_adaptive_weight_BIG;
 	__u32 Mid_size_adaptive_weight_BIG;
 
-	// Final Size Adaptive Weight Medium
+	/* Final Size Adaptive Weight Medium */
 	__u32 high_auto_adaptive_weight_MEDIUM;
 	__u32 high_size_adaptive_weight_MEDIUM;
 	__u32 Mid_auto_adaptive_weight_MEDIUM;
 	__u32 Mid_size_adaptive_weight_MEDIUM;
 
-	// Final Size Adaptive Weight Small
+	/* Final Size Adaptive Weight Small */
 	__u32 high_auto_adaptive_weight_SMALL;
 	__u32 high_size_adaptive_weight_SMALL;
 	__u32 Mid_auto_adaptive_weight_SMALL;
 	__u32 Mid_size_adaptive_weight_SMALL;
 
-	// Config
+	/* Config */
 	__u32 FILTER_HIST_EN;
 	__u32 FREQ_EXTRACT_ENHANCE;
 
-	// Frequency Weighting
+	/* Frequency Weighting */
 	__u32 freq_D_weighting;
 	__u32 freq_H_weighting;
 	__u32 freq_L_weighting;
 	__u32 freq_M_weighting;
 
-	// Frequency Weighting Final
+	/* Frequency Weighting Final */
 	__u32 freq_D_final_weighting;
 	__u32 freq_L_final_weighting;
 	__u32 freq_M_final_weighting;
 	__u32 freq_WH_final_weighting;
 	__u32 SIZE_PARAMETER;
 
-	// Luma Chroma Parameters
+	/* Luma Chroma Parameters */
 	__u32 chroma_high_gain;
 	__u32 chroma_high_index;
 	__u32 chroma_low_gain;
@@ -1318,7 +1318,7 @@ struct DISP_TDSHP_CLARITY_REG {
 	__u32 Luma_adaptive_mode;
 	__u32 Luma_shift;
 
-	// Base Black & White edges
+	/* Base Black & White edges */
 	__u32 class_0_positive_gain;
 	__u32 class_0_negative_gain;
 };
@@ -1378,7 +1378,7 @@ struct drm_mtk_chist_config {
 struct drm_mtk_ccorr_caps {
 	unsigned int ccorr_bit;
 	unsigned int ccorr_number;
-	unsigned int ccorr_linear;//1st byte:high 4 bit:CCORR1,low 4 bit:CCORR0
+	unsigned int ccorr_linear;/*1st byte:high 4 bit:CCORR1,low 4 bit:CCORR0 */
 };
 
 struct mtk_drm_pq_caps_info {
@@ -1548,14 +1548,14 @@ struct mtk_drm_panels_info {
 			DRM_MTK_SUPPORT_COLOR_TRANSFORM, \
 			struct DISP_COLOR_TRANSFORM)
 
-// for Display TDSHP
+/* for Display TDSHP */
 #define DRM_IOCTL_MTK_SET_DISP_TDSHP_REG      DRM_IOWR(DRM_COMMAND_BASE + \
 			DRM_MTK_SET_DISP_TDSHP_REG, struct DISP_TDSHP_REG)
 
 #define DRM_IOCTL_MTK_DISP_TDSHP_GET_SIZE      DRM_IOWR(DRM_COMMAND_BASE + \
 			DRM_MTK_DISP_TDSHP_GET_SIZE, struct DISP_TDSHP_DISPLAY_SIZE)
 
-// for Display Clarity
+/* for Display Clarity */
 #define DRM_IOCTL_MTK_DISP_CLARITY_SET_REG      DRM_IOWR(DRM_COMMAND_BASE + \
 			DRM_MTK_DISP_CLARITY_SET_REG, struct DISP_CLARITY_REG)
 
@@ -1726,7 +1726,7 @@ struct DISP_AAL_HIST {
 struct DISP_AAL_ESS20_SPECT_PARAM {
 	unsigned int ELVSSPN;
 	unsigned int ClarityGain; /* 10-bit ; [0,1023] */
-	unsigned int flag;//
+	unsigned int flag;
 };
 
 enum SET_BL_EXT_TYPE {
