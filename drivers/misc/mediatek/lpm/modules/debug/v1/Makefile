@@ -15,6 +15,7 @@ LPM_MODULE_DEBUG_COMMON += $(${BUILD_LPM_DBG_CPC_NAME}_objs:%.o=../cpc/%.o)
 
 ccflags-y += -I$(MTK_LPM_MODULES_FOLDER)/include/
 ccflags-y += -I$(MTK_LPM_MODULES_FOLDER)/debug/cpc
+ccflags-y += -I$(MTK_LPM_MODULES_FOLDER)/debug/v1/
 
 obj-$(CONFIG_MTK_LOW_POWER_MODULE) += ${MTK_LPM_DBG_COMMON_NAME}.o
 ${MTK_LPM_DBG_COMMON_NAME}-objs += lpm_dbg_cpuidle_status.o
