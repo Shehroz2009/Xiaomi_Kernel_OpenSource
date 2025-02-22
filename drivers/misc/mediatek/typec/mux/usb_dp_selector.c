@@ -10,6 +10,7 @@
 #include <linux/of_platform.h>
 #include <linux/usb/typec.h>
 #include <linux/usb/typec_mux.h>
+#include <mtk_dp.h>
 #include "tcpm.h"
 
 #if IS_ENABLED(CONFIG_MTK_USB_TYPEC_MUX)

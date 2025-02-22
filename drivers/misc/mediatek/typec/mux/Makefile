@@ -2,6 +2,8 @@
 
 ccflags-y += -I$(srctree)/drivers/usb/typec
 ccflags-y += -I$(srctree)/drivers/misc/mediatek/typec/tcpc/inc
+ccflags-y += -I$(srctree)/drivers/misc/mediatek/typec/mux
+ccflags-y += -I$(srctree)/drivers/gpu/drm/mediatek/mediatek_v2
 
 obj-$(CONFIG_MTK_USB_TYPEC_MUX) += mux_switch.o
 obj-$(CONFIG_TYPEC_MUX_FUSB304)	+= fusb304.o

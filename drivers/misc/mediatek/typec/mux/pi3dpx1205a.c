@@ -20,6 +20,7 @@
 #endif
 
 #include <pi3dpx1205a.h>
+#include <mtk_dp.h>
 
 #define K_EMERG	(1<<7)
 #define K_QMU	(1<<7)
