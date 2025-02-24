@@ -116,9 +116,8 @@ static void __update_cpu_freq_locked(void)
 
 	for (i = 0; i < policy_num; i++) {
 #if DEBUG_LOG
-		pr_info("%s, i:%d, min:%d, max:%d, cur_min:%d, cur_max:%d,
-		final:%d\n", __func__, i, fbt_min_freq[i], fbt_max_freq[i],
-		fbt_cur_floor[i], fbt_cur_ceiling[i], fbt_final_ceiling[i]);
+		pr_info("%s, i:%d, min:%d, max:%d, cur_min:%d, cur_max:%d, final:%d\n", __func__, i, fbt_min_freq[i], fbt_max_freq[i],
+			fbt_cur_floor[i], fbt_cur_ceiling[i], fbt_final_ceiling[i]);
 #endif
 
 		if (cfp_ceil_rel == 0 || cfp_onoff == 0) {
