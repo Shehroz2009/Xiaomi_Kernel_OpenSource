@@ -3267,7 +3267,11 @@ static void fbt_clear_state(struct render_info *thr)
 	int temp_blc_pid = 0;
 	unsigned long long temp_blc_buffer_id = 0;
 	int temp_blc_dep_num = 0;
-	struct fpsgo_loading temp_blc_dep[MAX_DEP_NUM];
+	struct fpsgo_loading *temp_blc_dep;
+
+	temp_blc_dep = kmalloc_array(MAX_DEP_NUM, sizeof(struct fpsgo_loading), GFP_KERNEL);
+	if (!temp_blc_dep)
+		return; // Обработка ошибки
 
 	if (!thr || thr->boost_info.cur_stage == FPSGO_JERK_INACTIVE)
 		return;
@@ -3285,6 +3289,8 @@ static void fbt_clear_state(struct render_info *thr)
 		fbt_do_boost(temp_blc, temp_blc_pid, temp_blc_buffer_id);
 
 	fpsgo_systrace_c_fbt_debug(thr->pid, thr->buffer_id, temp_blc_pid, "reset");
+
+	kfree(temp_blc_dep);
 }
 
 void fbt_set_limit(int cur_pid, unsigned int blc_wt,
@@ -4330,7 +4336,11 @@ static void fbt_check_max_blc_locked(int pid)
 	int temp_blc_pid = 0;
 	unsigned long long temp_blc_buffer_id = 0;
 	int temp_blc_dep_num = 0;
-	struct fpsgo_loading temp_blc_dep[MAX_DEP_NUM];
+	struct fpsgo_loading *temp_blc_dep;
+
+	temp_blc_dep = kmalloc_array(MAX_DEP_NUM, sizeof(struct fpsgo_loading), GFP_KERNEL);
+	if (!temp_blc_dep)
+		return; // Обработка ошибки
 
 	fbt_find_max_blc(&temp_blc, &temp_blc_pid,
 		&temp_blc_buffer_id, &temp_blc_dep_num, temp_blc_dep);
@@ -4369,6 +4379,8 @@ static void fbt_check_max_blc_locked(int pid)
 	} else
 		fbt_set_limit(pid, max_blc, max_blc_pid, max_blc_buffer_id,
 			max_blc_dep_num, max_blc_dep, NULL, 0);
+
+	kfree(temp_blc_dep);
 }
 
 static int fbt_overest_loading(int blc_wt, unsigned long long running_time,
@@ -5369,8 +5381,12 @@ void fpsgo_sbe2fbt_rescue(struct render_info *thr, int start, int enhance,
 	int temp_blc_pid = 0;
 	unsigned long long temp_blc_buffer_id = 0;
 	int temp_blc_dep_num = 0;
-	struct fpsgo_loading temp_blc_dep[MAX_DEP_NUM];
+	struct fpsgo_loading *temp_blc_dep;
 	int separate_aa_final = separate_aa;
+
+	temp_blc_dep = kmalloc_array(MAX_DEP_NUM, sizeof(struct fpsgo_loading), GFP_KERNEL);
+	if (!temp_blc_dep)
+		return; // Обработка ошибки
 
 	if (!thr || !sbe_rescue_enable)
 		return;
@@ -5498,6 +5514,7 @@ void fpsgo_sbe2fbt_rescue(struct render_info *thr, int start, int enhance,
 
 leave:
 	mutex_unlock(&fbt_mlock);
+	kfree(temp_blc_dep);
 	kfree(pld);
 }
 
