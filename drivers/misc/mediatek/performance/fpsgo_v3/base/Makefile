@@ -30,3 +30,4 @@ ccflags-y += \
 	-I$(BASE_TOP)/include/ \
 	-I$(COMP_TOP)/include/ \
 	-I$(FBT_TOP)/include/ \
+	-I$(MTK_TOP)/sched/

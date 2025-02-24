@@ -16,7 +16,7 @@
 #include <linux/sched/task.h>
 #include <linux/sched/cputime.h>
 #include <linux/cpufreq.h>
-#include "sugov/cpufreq.h"
+#include <sugov/cpufreq.h>
 #include <linux/kobject.h>
 #include <linux/device.h>
 #include <linux/miscdevice.h>

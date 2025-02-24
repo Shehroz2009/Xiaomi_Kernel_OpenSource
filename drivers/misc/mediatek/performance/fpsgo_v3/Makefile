@@ -3,7 +3,7 @@ ccflags-y += -DCONFIG_MTK_FPSGO_V3
 subdir-ccflags-y += -DCONFIG_MTK_FPSGO_V3
 endif
 
-FPSGO_TOP = $(srctree)/drivers/misc/mediatek/performance/fpsgo_v3/
+FPSGO_TOP = $(srctree)/drivers/misc/mediatek/performance/fpsgo_v3
 BASE_TOP = $(FPSGO_TOP)/base
 FBT_TOP = $(FPSGO_TOP)/fbt
 FSTB_TOP = $(FPSGO_TOP)/fstb
@@ -24,6 +24,7 @@ ccflags-y += \
         -I$(srctree)/drivers/misc/mediatek/include/mt-plat/ \
         -I$(srctree)/drivers/thermal/mediatek/ \
         -I$(GBE_TOP)/ \
+	-I$(FPSGO_TOP)/
 
 subdir-ccflags-y += \
         -I$(srctree)/include/ \
